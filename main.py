@@ -17,7 +17,12 @@ arrive = date_list('2018-07-10', '2018-07-11')
 def test():
     for i in depart:
         for l in arrive:
-            round_trip(DepartCity, ReturnCity, i, l)
+            if int(i.split('-')[0]) <= int(l.split('-')[0]):
+                if int(i.split('-')[1]) < int(l.split('-')[1]):
+                    round_trip(DepartCity, ReturnCity, i, l)
+                elif int(i.split('-')[1]) == int(l.split('-')[1]):
+                    if int(i.split('-')[2]) < int(l.split('-')[2]):
+                        round_trip(DepartCity, ReturnCity, i, l)
 
 
 def help():
