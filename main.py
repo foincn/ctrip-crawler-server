@@ -25,6 +25,10 @@ def test():
                         round_trip(DepartCity, ReturnCity, i, l)
 
 
+def start():
+    threading.Thread(target=test, args=()).start()
+
+
 def help():
     print('''
     round_trip(DepartCity, ReturnCity, departDate, returnDate)
