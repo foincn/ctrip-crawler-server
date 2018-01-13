@@ -28,7 +28,7 @@ def round_trip(DepartCity, ReturnCity, departDate, returnDate, debug=0):
     #global se
     start_time = datetime.now()
     url = 'http://flights.ctrip.com/international/round-%s-%s-%s-%s?%s&%s&y_s' % (DepartCity, ReturnCity, code(DepartCity), code(ReturnCity), departDate, returnDate)
-    print(url)
+    #print(url)
     ctrip_access = False
     while ctrip_access == False:
         se = Session(gh, wait_timeout=30, wait_callback=None, display=True, viewport_size=(800, 680), download_images=False)
@@ -56,7 +56,7 @@ def round_trip(DepartCity, ReturnCity, departDate, returnDate, debug=0):
     if se.exists('i.icon-reverse') == True:
         se.click('#sortControls > ul > li:nth-child(5) > span')
     se.wait_while_selector('#FI_progBar', timeout=20)
-    print('Loading finished!')
+    #print('Loading finished!')
     se.sleep(0.2)
     html = se.content
     soup = BeautifulSoup(html, "html.parser")
@@ -69,7 +69,8 @@ def round_trip(DepartCity, ReturnCity, departDate, returnDate, debug=0):
     print('%s-%s往返 %s去 %s回 最低价%s 搜索耗时%s秒' %(DepartCity, ReturnCity, departDate, returnDate, lowest, timedelsta))
     se.hide()
     del se
-    return lowest
+    price = lowest[1:-1]
+    return price
 
 
 def help():
