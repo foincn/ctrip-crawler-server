@@ -5,6 +5,7 @@
 from getprice import round_trip
 from multiprocessing import Process
 from tools import *
+import threading
 
 DepartCity = '洛杉矶'
 ReturnCity = '上海'
