@@ -6,7 +6,7 @@ from getprice import round_trip
 from multiprocessing import Process
 from tools import *
 
-DepartCity = '布里斯班'
+DepartCity = '洛杉矶'
 ReturnCity = '上海'
 departDate = '2018-03-01'
 #returnDate = '2018-03-11'
